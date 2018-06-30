@@ -1,4 +1,5 @@
 export const hashCode = s => {
+  //no ast edit
   var hash = 0,
     i,
     chr

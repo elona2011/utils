@@ -1,6 +1,13 @@
 let rCodes = {},
   rVarNames = {}
 
+export const Alphanums = `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`
+export const Alphabets = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`
+
+/**
+ * 获取一个随机字符串，包括字母和数字，长度为len
+ * @param {*} len 长度
+ */
 export const getCodes = len => {
   let r = getRawCodes(len)
 
@@ -13,15 +20,18 @@ export const getCodes = len => {
 }
 
 const getRawCodes = len => {
-  let codes = `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`,
-    r = ''
+  let r = ''
 
   for (let i = 0; i < len; i++) {
-    r += codes.charAt(getRandomInt(codes.length))
+    r += Alphanums.charAt(getRandomInt(Alphanums.length))
   }
   return r
 }
 
+/**
+ * 获取一个随机字符串，包括字母和数字，首字符为字母，总长度为len
+ * @param {*} len 长度
+ */
 export const getVarName = len => {
   if (len < 1) return ''
   let r = getAlphabet()
@@ -36,7 +46,4 @@ export const getVarName = len => {
 }
 
 const getRandomInt = max => Math.floor(Math.random() * max)
-const getAlphabet = () => {
-  let codes = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-  return codes.charAt(getRandomInt(codes.length))
-}
+const getAlphabet = () => Alphabets.charAt(getRandomInt(Alphabets.length))
