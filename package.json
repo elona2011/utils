@@ -1,26 +1,27 @@
 {
   "name": "yamutils",
-  "version": "0.0.6",
+  "version": "0.0.31",
   "description": "",
   "main": "lib",
   "scripts": {
-    "start": "npm run build",
-    "build": "babel src --out-dir lib",
-    "test": "mocha --require babel-core/register"
+    "start": "npm run build&& npm publish",
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "test": "mocha --require @babel/register"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "chai": "^4.1.2",
-    "mocha": "^5.2.0"
-  },
+  "devDependencies": {},
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ]
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "@babel/register": "^7.8.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0"
   }
 }
